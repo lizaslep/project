@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Компоненты Vue.js</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+<link rel="stylesheet" href=".\styles-main.css" type="text/css" >
+
+<meta charset="utf-8" />
+</head>
+<body>
+<div id="app">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+          <a class="navbar-brand" href="#">SomeEcologyShit</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="#demo" data-toggle="collapse">User</a></li>
+            <li><a href="#">Maps</a></li>
+            <li><a href="#">Charts</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
+          </ul>
+        </div>
+      </nav>
+  <div class="row">
+  <div class="col-md-4 col-md-offset-4">
+      <form id="uform">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" v-model="nameCom"  required>    
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <p v-model="email">{{email}}</p> 
+          </div> <div class="form-group">
+            <label for="country">Country:</label>
+            <input type="text" class="form-control" id="country" v-model="country" required>    
+          </div> 
+          <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" class="form-control" id="city" v-model="city" value="{{city}}" required>    
+          </div> 
+          <div class="form-group">
+            <label for="companyType">Company Type:</label>
+            <input type="text" class="form-control" id="companyType" v-model="companyType" value="{{companyType}}" required>    
+          </div>
+          <div class="form-group">
+            <label for="iots">IoTs:</label>
+              </div>
+          
+        </form>
+     <table class="table table-hover">
+      <tr>
+        <td>№</td>
+        <td>Date</td>
+        <td>Location</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr v-for="(device,index) in devices">
+        <td>{{index + 1}}.</td>
+        <td>{{device.date}}</td><td>{{device.location}}</td>
+        <td><button class="btn btn-info">Delete</button></td>
+        <td><button class="btn btn-info">Refresh</button></td>
+    </table> 
+    <button class="btn btn-info" data-toggle="collapse" data-target="#demo">Add device</button>
+    <br>
+    <br>
+    <br>
+    <button type="submit" v-on:click="update" class="btn btn-primary btn-block">Save</button>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
+<script src="https://unpkg.com/vue"></script>
+<script type="text/javascript" src="test.js"></script>
